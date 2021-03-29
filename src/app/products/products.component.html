@@ -1,0 +1,47 @@
+<br/>
+
+<div class="row">
+
+  <div class=" col-md-3">
+    <ul class="nav flex-column">
+        <li class="nav-item">
+          <h2>Category</h2>
+          <div *ngFor="let category of categorys">
+          <input type="radio" name="categorytype" value={{category}} (change)="radioChangeHandler($event)">
+          <i>{{category}}</i>
+          </div>
+          <p><span>You selected category is: </span><b>{{selectedCategory}}</b></p>
+        </li>
+        <li class="nav-item">
+          <div>
+            <form >
+                <div class="form-group">
+                <label for="name">Search Product By Its Name</label>
+                <input type="text" class="form-control" [(ngModel)]="product.productName" name="productName">
+                </div>
+                <button type="button" class="btn btn-primary" (click)="submitPost()">Submit</button>
+            </form>
+          </div>
+        </li>
+    </ul>
+  </div>
+
+  <div class="card col-md-9">
+    <div class="card-group">
+      <div class="row">
+        <div *ngFor="let product of productList">
+          <div class="card col-md-4">
+            <div class="card" style="width: 18rem;">
+              <img src="../../assets/iphone1.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{product.productName}}</h5>
+                <p class="card-text">{{product.description}} {{product.count}} {{product.price}} {{product.category}}</p>
+                <a class="btn btn-primary" [routerLink]="['/productdetail', product.productId]">Go somewhere</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
