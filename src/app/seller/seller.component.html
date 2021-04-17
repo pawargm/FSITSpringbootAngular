@@ -1,0 +1,29 @@
+<div>
+    <form >
+        <div class="form-group">
+            <label for="name">ProductName</label>
+            <input type="text" class="form-control" [(ngModel)]="product.productName" name="productName">
+        </div>
+
+        <div class="form-group">
+            <label for="body">ProductCount</label>
+            <input type="text" class="form-control" [(ngModel)]="product.count" name="count">
+        </div>
+
+        <div class="form-group">
+            <label for="body">ProductPrice</label>
+            <input type="text" class="form-control" [(ngModel)]="product.price" name="price">
+        </div>
+
+        <div class="form-group">
+            <label for="body">ProductCategory</label>
+            <input type="text" class="form-control" [(ngModel)]="product.category" name="category">
+        </div>
+
+        <div class="form-group">
+            <label for="body">Description</label>
+            <input type="text" class="form-control" [(ngModel)]="product.description" name="description">
+        </div>
+        <button type="button" class="btn btn-primary" (click)="submitProduct()">Submit</button>
+
+    </form>

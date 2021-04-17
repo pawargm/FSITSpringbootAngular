@@ -36,7 +36,8 @@
               <div class="card-body">
                 <h5 class="card-title">{{product.productName}}</h5>
                 <p class="card-text">{{product.description}} {{product.count}} {{product.price}} {{product.category}}</p>
-                <a class="btn btn-primary" [routerLink]="['/productdetail', product.productId]">Go somewhere</a>
+                <a class="btn btn-primary" [routerLink]="['/productdetail', product.productId]">viewdetails</a>
+                <button type="button" class="btn btn-primary" (click)="addToCart(product.productId)">AddtoCart</button>
               </div>
             </div>
           </div>

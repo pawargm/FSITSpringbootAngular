@@ -15,6 +15,7 @@ export class ProductsComponent implements OnInit {
   constructor(private productService: ProductService, private dataService: DataService) { }
 
   productList: any
+  mail:any = '';
 
   selectedCategory: string = '';
 
@@ -33,8 +34,18 @@ export class ProductsComponent implements OnInit {
 
   getProductList() {
     this.productService.getAllProducts().subscribe((res: Product[]) => {
+      console.log(typeof(res))
       this.productList = res
+
+      /**var obj = JSON.parse(res);
+      var arrayRes = []
+
+      for(var i in obj) {
+        arrayRes.push(obj[i])
+      }
+      this.productList = arrayRes **/
     })
+
     console.log(this.productList)
   }
 
@@ -59,6 +70,14 @@ export class ProductsComponent implements OnInit {
 
   setProductId(productId: string) {
     this.dataService.setProductId(productId);
+  }
+
+  addToCart(productId: string) {
+    
+    this.mail = window.sessionStorage.getItem('mail');
+    this.productService.addToCartUsr(productId, this.mail).subscribe((res: string) => {
+      console.log(res)
+    })
   }
 
 }
